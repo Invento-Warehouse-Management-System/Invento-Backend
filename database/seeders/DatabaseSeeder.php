@@ -88,8 +88,5 @@ class DatabaseSeeder extends Seeder
                 $manageCashiersPermission
             ]
         ]);
-
-
     }
-
 }

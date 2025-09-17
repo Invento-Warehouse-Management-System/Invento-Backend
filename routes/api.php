@@ -12,16 +12,19 @@ Route::get('/user', function (Request $request) {
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
+Route::delete('/users/{user}', [UserController::class, 'destroy'])
+    ->middleware(['auth:api', 'role:admin']);
+
 Route::get('/users', [UserController::class, 'index'])
     ->name('users.index')
     ->middleware(['auth:api', 'role:admin']);
 
-Route::get('/users/{user}', [UserController::class, 'show'])
-    ->name('users.show')
-    ->middleware(['auth:api', 'role:admin']);
-
 Route::post('/users', [UserController::class, 'store'])
     ->name('users.store')
+    ->middleware(['auth:api', 'role:admin']);
+
+Route::get('/users/{user}', [UserController::class, 'show'])
+    ->name('users.show')
     ->middleware(['auth:api', 'role:admin']);
 
 Route::put('/users/{user}', [UserController::class, 'update'])

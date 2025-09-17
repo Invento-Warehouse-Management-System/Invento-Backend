@@ -29,7 +29,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\JsonResponse
     {
         $data = $request->validate([
             'name' => 'required',
@@ -59,7 +59,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user)
+    public function edit(User $user): \Illuminate\Http\JsonResponse
     {
         return response()->json($user);
     }
@@ -67,7 +67,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user): \Illuminate\Http\JsonResponse
     {
         $data = $request->validate([
             'name' => 'required',
@@ -87,8 +87,9 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy(User $user): \Illuminate\Http\JsonResponse
     {
-        //
+        $user->delete();
+        return response()->json(['message' => 'User has been deleted']);
     }
 }

@@ -11,7 +11,6 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthController extends Controller
 {
-
     public function __construct()
     {
         //$this->middleware('auth:api', ['except' => ['login']]);
@@ -36,7 +35,7 @@ class AuthController extends Controller
                 PermissionsEnum::HandleTransactionsPermission->value,
                 PermissionsEnum::ManageCustomersPermission->value,
                 PermissionsEnum::staffAssignment->value,
-                ]
+            ]
         ]);
 
 

@@ -16,8 +16,6 @@ class User extends Authenticatable implements JWTSubject
     protected $connection = 'mongodb';
     protected $table = 'users';
 
-
-
     /**
      * The attributes that are mass assignable.
      *
@@ -30,10 +28,6 @@ class User extends Authenticatable implements JWTSubject
         'role',
         'permissions'
     ];
-
-//    protected $casts = [
-//        'permissions' => 'array'
-//    ];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -57,6 +51,7 @@ class User extends Authenticatable implements JWTSubject
             'password' => 'hashed',
         ];
     }
+
 
     public function getJWTIdentifier()
     {
