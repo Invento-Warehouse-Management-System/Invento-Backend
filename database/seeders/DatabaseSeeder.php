@@ -88,5 +88,20 @@ class DatabaseSeeder extends Seeder
                 $manageCashiersPermission
             ]
         ]);
+
+        //Test admin User
+        User::factory()->create([
+            'name' => 'Janaka Namal',
+            'email' => 'janaka@example.com',
+            'password' => Hash::make('janaka123'),
+            'role' => $adminRole,
+            'permissions' => [
+                $manageProductsPermission,
+                $manageWarehousesPermission,
+                $manageCustomersPermission,
+                $manageTransactionsPermission,
+                $manageStaffAssignmentPermission,
+            ]
+        ]);
     }
 }

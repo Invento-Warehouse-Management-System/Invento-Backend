@@ -64,4 +64,11 @@ class User extends Authenticatable implements JWTSubject
         // TODO: Implement getJWTCustomClaims() method.
         return [];
     }
+
+
+    public function warehouse(): \Illuminate\Database\Eloquent\Relations\BelongsTo|\MongoDB\Laravel\Relations\BelongsTo
+    {
+        return $this->belongsTo(Warehouse::class, 'warehouse_id', '_id');
+    }
+
 }
