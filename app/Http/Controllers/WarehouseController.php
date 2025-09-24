@@ -11,6 +11,7 @@ class WarehouseController extends Controller
 {
 
     //Register new warehouse
+    //@POST
     public function store(Request $request): \Illuminate\Http\JsonResponse
     {
         $data = $request->validate([
@@ -34,6 +35,7 @@ class WarehouseController extends Controller
     }
 
     //Warehouse logging
+    //@POST
     public function login(Request $request): \Illuminate\Http\JsonResponse
     {
         $credentials = $request->validate([
@@ -60,13 +62,36 @@ class WarehouseController extends Controller
 
     }
 
+    //View all warehouses
+    //@GET
     public function index(): \Illuminate\Http\JsonResponse
     {
         $warehouses = Warehouse::all();
         return response()->json([$warehouses],201);
     }
 
+    //View single warehouse
+    //@GET
+    public function show(Warehouse $warehouse): \Illuminate\Http\JsonResponse
+    {
+        return response()->json([$warehouse],201);
+    }
 
+
+
+
+
+    //Update warehouse details
+    //@PUT
+    public function update(Request $request, Warehouse $warehouse): \Illuminate\Http\JsonResponse
+    {
+        return response()->json([]);
+
+    }
+
+
+    //Delete warehouse
+    //@DELETE
     public function destroy(Warehouse $warehouse): \Illuminate\Http\JsonResponse
     {
         $warehouse->delete();

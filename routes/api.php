@@ -52,3 +52,7 @@ Route::post('/warehouse/login', [WarehouseController::class, 'login'])
 Route::get('/warehouse', [WarehouseController::class, 'index'])
     ->name('warehouse.index')
     ->middleware(['auth:api', 'role:admin']);
+
+Route::get('/warehouse/{warehouse}', [WarehouseController::class, 'show'])
+    ->name('warehouse.show')
+    ->middleware(['auth:api', 'role:admin']);
