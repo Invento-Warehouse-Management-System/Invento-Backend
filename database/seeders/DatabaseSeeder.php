@@ -91,9 +91,9 @@ class DatabaseSeeder extends Seeder
 
         //Test admin User
         User::factory()->create([
-            'name' => 'Janaka Namal',
-            'email' => 'janaka@example.com',
-            'password' => Hash::make('janaka123'),
+            'name' => 'Teshan ',
+            'email' => 'teshan@example.com',
+            'password' => Hash::make('teshan123'),
             'role' => $adminRole,
             'permissions' => [
                 $manageProductsPermission,
